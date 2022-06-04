@@ -49,6 +49,17 @@ services:
     networks:
       - shortner-app-network
 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=db
+      - PMA_PASSWORD=root
+    networks:
+      - shortner-app-network
+
 networks:
   shortner-app-network:
     driver: bridge
